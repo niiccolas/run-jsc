@@ -6,12 +6,13 @@ const inputTimes = {
   h: 0,
   d: 0,
 };
-const offset     = 1000;
+const offset = 1000;
+const node   = document.getElementById('time-input');
 let timeTarget;
 let countInterval;
 
 function getUserInput() {
-  const userInput = document.getElementById('user-input').value;
+  const userInput = document.getElementById('time-input').value;
   const userInputArray = userInput.match(digitsAndSuffix);
 
   // Populate inputTimes object
@@ -73,4 +74,12 @@ function launchTimer() {
 document.getElementById('start').addEventListener('click', () => {
   timeTarget    = Date.now() + offset + userInputToMs();
   countInterval = setInterval(launchTimer, 1);
+});
+
+node.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    timeTarget    = Date.now() + offset + userInputToMs();
+    countInterval = setInterval(launchTimer, 1);
+    node.value    = '';
+  }
 });
