@@ -18,8 +18,45 @@
 
 </head>
 <body>
-  <header>Header</header>
-  <main>Main</main>
-  <footer>Footer</footer>
+  <header></header>
+  <main>
+    <header>
+      <div class="row-red"></div>
+    </header>
+
+    <div id="countdown-timer">
+      <div class="user-input">
+        <input type="text" id="user-input" value="60s">
+        <input type="button" id="start" value="start">
+        <input type="button" id="pause" value="pause">
+        <input type="button" id="resume" value="resume">
+        <input type="button" id="reset" value="reset">
+      </div> <!-- #user-input div end-->
+
+      <div id="vue">
+        <div class="vue-row">
+          <div>Days</div>
+          <div class="vue-row vue-count" id="days"></div>
+        </div>
+        <div class="vue-row">
+          <div>Hours</div>
+          <div class="vue-row vue-count" id="hours"></div>
+        </div>
+        <div class="vue-row">
+          <div>Minutes</div>
+          <div class="vue-row vue-count" id="minutes"></div>
+        </div>
+        <div class="vue-row">
+          <div>Seconds</div>
+          <div class="vue-row vue-count" id="seconds"></div>
+        </div>
+      </div> <!-- #vue div end -->
+    </div> <!-- #countdown-timer div end-->
+
+    <footer>
+      <div class="row-red" id="footer"></div>
+    </footer>
+  </main>
+  <footer></footer>
 </body>
 </html>
