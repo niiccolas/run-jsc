@@ -19,3 +19,29 @@ function getUserInput() {
     });
   }
 }
+
+function userInputToMs() {
+  getUserInput();
+  let totalMs = 0;
+
+  Object.keys(inputTimes).forEach((key) => {
+    switch (key) {
+      case 's':
+        totalMs += inputTimes[key] * 1000;
+        break;
+      case 'm':
+        totalMs += inputTimes[key] * 60000;
+        break;
+      case 'h':
+        totalMs += inputTimes[key] * 3600000;
+        break;
+      case 'd':
+        totalMs += inputTimes[key] * 86400000;
+        break;
+      default:
+        totalMs += 0;
+    }
+  });
+
+  return totalMs;
+}
