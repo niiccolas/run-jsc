@@ -1,3 +1,11 @@
+:root {
+  --fire-orange: rgb(255, 28, 38);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;
