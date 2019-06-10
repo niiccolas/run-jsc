@@ -6,6 +6,9 @@ const inputTimes = {
   h: 0,
   d: 0,
 };
+const offset     = 1000;
+let timeTarget;
+let countInterval;
 
 function getUserInput() {
   const userInput = document.getElementById('user-input').value;
@@ -45,3 +48,29 @@ function userInputToMs() {
 
   return totalMs;
 }
+
+function launchTimer() {
+  const timeCurrent = Date.now();
+  const timeDelta   = timeTarget - timeCurrent;
+  const days    = Math.floor((timeDelta / (24 * 60 * 60 * 1000)));
+  const hours   = Math.floor((timeDelta % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+  const minutes = Math.floor((timeDelta % (60 * 60 * 1000)) / (60 * 1000));
+  const seconds = Math.floor((timeDelta % (60 * 1000)) / 1000);
+
+  // Populate DOM
+  document.getElementById('days').innerHTML    = days;
+  document.getElementById('hours').innerHTML   = hours;
+  document.getElementById('minutes').innerHTML = minutes;
+  document.getElementById('seconds').innerHTML = seconds;
+
+  // When countdown is over, say something nice :-)
+  if (timeDelta <= 10) {
+    clearInterval(countInterval);
+    document.getElementById('footer').innerHTML += '<h2>TIMER EXPIRED</h2>';
+  }
+}
+
+document.getElementById('start').addEventListener('click', () => {
+  timeTarget    = Date.now() + offset + userInputToMs();
+  countInterval = setInterval(launchTimer, 1);
+});
