@@ -1,3 +1,51 @@
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+}
+
+.row-red {
+  display: block;
+  height: 15vh;
+  width: 100%;
+  background-color: red;
+}
+
+#countdown-timer {
+  background-color: #000;
+  height: 70vh;
+  padding: 1rem;
+}
+
+.user-input {
+  padding-bottom: 1rem;
+}
+
+input {
+  border: 1px solid black;
+  font-size: 2rem;
+  border-radius: 5px;
+}
+input[type=text] {
+  width: 100%;
+  border-radius: 0;
+  border-bottom: 3px solid #fff;
+  background-color: black;
+  color: white;
+}
+
+#vue {
+  display: flex;
+}
+
+.vue-row {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.vue-count {
+  font-weight: 900;
+  height: 50px;
+  font-size: 100px;
 }
