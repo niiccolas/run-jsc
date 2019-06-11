@@ -51,6 +51,10 @@ function userInputToMs() {
 }
 
 function launchTimer() {
+  // Reset display
+  document.querySelector('#time-input').style.background = 'black';
+  document.querySelector('body').classList.remove('countdown-over');
+
   const timeCurrent = Date.now();
   const timeDelta   = timeTarget - timeCurrent;
   const days    = Math.floor((timeDelta / (24 * 60 * 60 * 1000)));
