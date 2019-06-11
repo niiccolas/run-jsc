@@ -105,6 +105,9 @@ node.addEventListener('keyup', (event) => {
     if (input) {
       timeTarget       = Date.now() + offset + userInputToMs();
       node.placeholder = '';
+
+      // Clear previous intervals
+      clearInterval(countInterval);
       countInterval    = setInterval(launchTimer, 1);
     }
   }
