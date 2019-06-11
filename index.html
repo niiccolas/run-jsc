@@ -9,6 +9,9 @@
   <!-- WEB FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
+  <!-- FONTAWESOME ICONS -->
+  <script src="https://kit.fontawesome.com/91a9cf5d1d.js"></script>
+
   <!-- CSS STYLESHEETS -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -24,14 +27,19 @@
       <div class="row-red"></div>
     </header>
 
-    <div id="countdown-timer">
-      <div class="user-input">
-        <input type="text" id="time-input" placeholder="60s" autofocus>
-        <input type="button" id="start" value="start">
-        <input type="button" id="pause" value="pause">
-        <input type="button" id="resume" value="resume">
-        <input type="button" id="reset" value="reset">
-      </div> <!-- #user-input div end-->
+      <div id="countdown-timer">
+        <div class="user-input">
+          <div id="input">
+            <input type="text" id="time-input" placeholder="2m15s" autofocus>
+          </div>
+
+          <div id="controls">
+            <i id="start"  class="fas fa-play"></i>
+            <i id="reset" class="fas fa-redo"></i>
+            <!-- <i id="pause"  class="fas fa-pause"></i> -->
+            <!-- <i id="reset"  class="fas fa-plus"></i> -->
+          </div>
+        </div> <!-- #user-input div end-->
 
       <div id="vue">
         <div class="vue-row">
