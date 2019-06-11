@@ -12,7 +12,7 @@ let timeTarget;
 let countInterval;
 
 function getUserInput() {
-  const userInput      = document.getElementById('time-input').value;
+  const userInput      = document.getElementById('time-input').value.replace(/ /g, '');
   const userInputArray = userInput.match(digitsAndSuffixes);
 
   if (userInputArray) {
