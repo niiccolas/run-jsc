@@ -81,14 +81,22 @@ document.getElementById('reset').addEventListener('click', () => {
 });
 
 document.getElementById('start').addEventListener('click', () => {
-  timeTarget    = Date.now() + offset + userInputToMs();
-  countInterval = setInterval(launchTimer, 1);
+  // At least one valid value has been entered
+  const input = Object.values(getUserInput()).some(el => el > 0);
+  if (input) {
+    timeTarget    = Date.now() + offset + userInputToMs();
+    countInterval = setInterval(launchTimer, 1);
+  }
 });
 
 node.addEventListener('keyup', (event) => {
+  // At least one valid value has been entered
   if (event.key === 'Enter') {
-    timeTarget    = Date.now() + offset + userInputToMs();
-    countInterval = setInterval(launchTimer, 1);
-    node.value    = '';
+    const input = Object.values(getUserInput()).some(el => el > 0);
+    if (input) {
+      timeTarget       = Date.now() + offset + userInputToMs();
+      node.placeholder = '';
+      countInterval    = setInterval(launchTimer, 1);
+    }
   }
 });
