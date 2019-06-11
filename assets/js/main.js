@@ -1,6 +1,6 @@
 /* eslint-disable no-multi-spaces */
-const digitsAndSuffix = /\d+[s|m|h|d]/gi;
-const inputTimes = {
+const digitsAndSuffixes = /\d+[s|m|h|d]/gi;
+let inputTimes = {
   s: 0,
   m: 0,
   h: 0,
@@ -12,20 +12,22 @@ let timeTarget;
 let countInterval;
 
 function getUserInput() {
-  const userInput = document.getElementById('time-input').value;
-  const userInputArray = userInput.match(digitsAndSuffix);
+  const userInput      = document.getElementById('time-input').value;
+  const userInputArray = userInput.match(digitsAndSuffixes);
 
-  // Populate inputTimes object
   if (userInputArray) {
+    // Populate inputTimes object
+    // Always reset previous input times to allow for timer queueing
+    Object.keys(inputTimes).forEach((el) => { inputTimes[el] = 0 });
     userInputArray.forEach((el) => {
       const timeUnitSuffix = el.substr(-1);
       inputTimes[timeUnitSuffix] += Number(el.match(/\d+/g).join());
     });
   }
+  return inputTimes;
 }
 
 function userInputToMs() {
-  getUserInput();
   let totalMs = 0;
 
   Object.keys(inputTimes).forEach((key) => {
