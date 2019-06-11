@@ -8,6 +8,7 @@ let inputTimes = {
 };
 const offset = 1000;
 const node   = document.getElementById('time-input');
+const timerCompleteSound = new Audio('./assets/audio/atria.ogg');
 let timeTarget;
 let countInterval;
 
@@ -77,13 +78,24 @@ function launchTimer() {
   if (timeDelta <= 10) {
     clearInterval(countInterval);
     document.querySelector('#time-input').value = 'TIME‘S UP!';
-    new Audio('./assets/audio/atria.ogg').play();
+    timerCompleteSound.play();
 
     // Change background color for clearer UI
     document.querySelector('#time-input').style.background = 'red';
     document.querySelector('body').classList.add('countdown-over');
   }
 }
+
+/*
+
+   ____                    __  __             _             _       _   _
+  |  _ \  ___  _ __ ___   |  \/  | __ _ _ __ (_)_ __  _   _| | __ _| |_(_) ___  _ __
+  | | | |/ _ \| '_ ` _ \  | |\/| |/ _` | '_ \| | '_ \| | | | |/ _` | __| |/ _ \| '_ \
+  | |_| | (_) | | | | | | | |  | | (_| | | | | | |_) | |_| | | (_| | |_| | (_) | | | |
+  |____/ \___/|_| |_| |_| |_|  |_|\__,_|_| |_|_| .__/ \__,_|_|\__,_|\__|_|\___/|_| |_|
+                                               |_|
+
+*/
 
 document.getElementById('reset').addEventListener('click', () => {
   location.reload();
