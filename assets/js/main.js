@@ -64,10 +64,15 @@ function launchTimer() {
   document.getElementById('minutes').innerHTML = minutes;
   document.getElementById('seconds').innerHTML = seconds;
 
-  // When countdown is over, say something nice :-)
+  // When countdown is over, say/play something nice :-)
   if (timeDelta <= 10) {
     clearInterval(countInterval);
-    document.getElementById('footer').innerHTML += '<h2>TIMER EXPIRED</h2>';
+    document.querySelector('#time-input').value = 'TIME‘S UP!';
+    new Audio('./assets/audio/atria.ogg').play();
+
+    // Change background color for clearer UI
+    document.querySelector('#time-input').style.background = 'red';
+    document.querySelector('body').classList.add('countdown-over');
   }
 }
 
