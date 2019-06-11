@@ -56,6 +56,9 @@ function launchTimer() {
   // Reset display
   document.querySelector('#time-input').style.background = 'black';
   document.querySelector('body').classList.remove('countdown-over');
+  // Reveal rows titles
+  var vues = document.getElementsByClassName('vue-row')
+  Array.from(vues).forEach( vue => vue.classList.add('reveal'));
 
   const timeCurrent = Date.now();
   const timeDelta   = timeTarget - timeCurrent;
