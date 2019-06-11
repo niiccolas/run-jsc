@@ -76,6 +76,10 @@ function launchTimer() {
   }
 }
 
+document.getElementById('reset').addEventListener('click', () => {
+  location.reload();
+});
+
 document.getElementById('start').addEventListener('click', () => {
   timeTarget    = Date.now() + offset + userInputToMs();
   countInterval = setInterval(launchTimer, 1);
