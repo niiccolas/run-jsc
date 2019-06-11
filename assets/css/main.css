@@ -11,43 +11,96 @@ body {
   font-size: 2rem;
   color: #fff;
   background-color: #000;
+  transition: 1s background-color ease;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+.countdown-over {
+  background-color: blue;
+}
+
+.wrapper {
+  margin: 20px auto;
+  width: 80%;
 }
 
 .row-red {
   display: block;
-  height: 15vh;
-  width: 100%;
-  background-color: red;
+  height: 15px;
+  margin: 0 auto;
+  background-color: var(--fire-orange);;
 }
 
 #countdown-timer {
-  background-color: #000;
   height: 70vh;
   padding: 1rem;
+  margin-top: 1rem;
 }
 
 .user-input {
-  padding-bottom: 1rem;
+  display: flex;
+  justify-items: center;
+}
+
+#input {
+  flex: 3;
+}
+
+#controls {
+  flex:1;
+  padding-left: 1rem;
+}
+
+i {
+  text-align: center;
+  padding: 5px;
+  color:white;
+  cursor: pointer;
 }
 
 input {
-  border: 1px solid black;
-  font-size: 2rem;
+  border: none;
   border-radius: 5px;
 }
+
 input[type=text] {
+  font-size: 2rem;
   width: 100%;
   border-radius: 0;
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid blue;
   background-color: black;
+  font-weight: 800;
   color: white;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: blue;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: blue;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: blue;
 }
 
 #vue {
   display: flex;
+  margin-top: 1rem;
 }
 
 .vue-row {
+  color: var(--fire-orange);
+  text-transform: uppercase;
   flex: 1;
   font-size: 1rem;
 }
@@ -55,5 +108,58 @@ input[type=text] {
 .vue-count {
   font-weight: 900;
   height: 50px;
-  font-size: 100px;
+  font-size: 6rem;
+  color: #fff;
+  transition: 1s all ease;
 }
+
+#days {
+  font-size: 5rem;
+}
+
+#footer {
+  color: white;
+  text-align: center;
+}
+
+#header-main {
+  color: var(--fire-orange);
+  text-align: right;
+  font-size: 1rem;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+h2 {
+  /* color: white; */
+}
+
+#header-main p, h1, h2 {
+  margin-bottom: 5px;
+}
+
+.header-instructions {
+  text-transform: none;
+}
+
+.suffix {
+  color: white;
+  font-weight: 500;
+}
+
+/*=============================================
+=            UI            =
+=============================================*/
+
+.hide {
+  transition: 1s opacity ease;
+  opacity: 0;
+}
+
+.reveal {
+  opacity: 1;
+}
+
+/*=====  End of UI  ======*/
